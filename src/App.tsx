@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 import '@styles/app.scss'
-import Home from '@pages/home'
 import { themeConfig } from '@theme'
 import { ThemeProvider } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
+import router from '@router/route'
 
 function App() { 
 
@@ -12,12 +12,7 @@ function App() {
   return (
     <ThemeProvider theme={themeConfig(mode.value)}>
       <div className="App">
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<h1>About</h1>} />
-          </Routes>
-        </Router>
+        <RouterProvider router={router} />
       </div>
     </ThemeProvider>
   )

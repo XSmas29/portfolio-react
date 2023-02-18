@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material"
+import { Link } from "react-router-dom"
 
 type navbarLinkProps = {
   title: string
@@ -10,15 +11,20 @@ const NavbarLink = ({ title, url }: navbarLinkProps) => {
     <Typography
       variant="h6"
       noWrap
-      component="a"
-      href={url}
+      component="span"
       sx={{
-        color: 'inherit',
-        textDecoration: 'none',
-        mx: 4,
+        mx: 3,
       }}
     >
-      {title}
+      <Link 
+        to={url} 
+        style={{
+          textDecoration: 'none', 
+          color: 'inherit'
+        }}
+      >
+        {title}
+      </Link>
     </Typography>
   )
 }
