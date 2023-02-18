@@ -38,7 +38,7 @@ const Navbar = () => {
                 alignItems: 'center',
               }}
             >
-              <div>
+              <span>
                 <IconButton
                   size="large"
                   edge="start"
@@ -58,7 +58,7 @@ const Navbar = () => {
                     title="Experience"
                     url="/experience" 
                   />
-              </div>
+              </span>
               <div>
                 <ThemeSwitch 
                   sx={{ mr: 3 }}
