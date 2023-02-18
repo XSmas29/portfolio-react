@@ -8,6 +8,8 @@ export const modeSlice = createSlice({
   reducers: {
     changeMode: (state, value) => {
       state.value = value.payload;
+      document.documentElement.classList.remove('theme-dark', 'theme-light');
+      document.documentElement.classList.add(`theme-${value.payload}`);
     }
   },
 });

@@ -1,6 +1,6 @@
 import Navbar from "@components/navbar/navbar"
 
-const Home = () => {
+const Education = () => {
   return (
     <div>
       <Navbar />
@@ -8,4 +8,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Education
