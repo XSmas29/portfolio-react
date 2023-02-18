@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import { Link, RouterProvider } from 'react-router-dom'
-import '@styles/app.scss'
-import { themeConfig } from '@theme'
-import { Paper, ThemeProvider } from '@mui/material'
-import { useSelector } from 'react-redux'
-import Navbar from '@components/navbar/navbar'
-import Routing from '@router/route'
+import '@styles/app.scss';
+import { themeConfig } from '@theme';
+import { Paper, ThemeProvider } from '@mui/material';
+import { useSelector } from 'react-redux';
+import Navbar from '@components/navbar/navbar';
+import Routing from '@router/route';
 
 function App() {
-  const mode = useSelector((state: any) => state.mode)
+  const mode = useSelector((state: any) => state.mode);
   return (
     <ThemeProvider theme={themeConfig(mode.value)}>
       <div className="App">
@@ -23,7 +21,7 @@ function App() {
         </Paper>
       </div>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

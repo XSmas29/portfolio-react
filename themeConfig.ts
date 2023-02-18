@@ -1,5 +1,5 @@
-import { createTheme } from "@mui/material/styles";
-import { PaletteMode } from "@mui/material";
+import { createTheme } from '@mui/material/styles';
+import { PaletteMode } from '@mui/material';
 
 const colors = {
   violet: '#5F49F9',
@@ -10,7 +10,7 @@ const colors = {
   darkViolet: '#3A2BA4',
   darkGray: '#5D5D5D',
   lightGray: '#AAB4BE',
-}
+};
 
 const lightTheme = {
   primary: {
@@ -24,8 +24,8 @@ const lightTheme = {
   },
   background: {
     default: colors.white,
-  }
-}
+  },
+};
 const darkTheme = {
   primary: {
     main: colors.darkViolet,
@@ -38,10 +38,10 @@ const darkTheme = {
   },
   background: {
     default: colors.black,
-  }
-}
+  },
+};
 const themeConfig = (mode: PaletteMode) => createTheme({
-  palette: mode === "dark" ? darkTheme : lightTheme,
+  palette: mode === 'dark' ? darkTheme : lightTheme,
 });
 
 export {

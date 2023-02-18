@@ -1,17 +1,15 @@
-import { Link } from 'react-router-dom';
-import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Button, IconButton, Toolbar } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import ThemeSwitch from '@components/misc/themeSwitch';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeMode } from '@store/slice/mode';
 import NavbarLink from './navbarLink';
 import { Slide } from '@mui/material';
-import { useRef } from 'react';
 
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const mode = useSelector((state: any) => state.mode)
+  const mode = useSelector((state: any) => state.mode);
   
   return (
       <Box
@@ -71,7 +69,7 @@ const Navbar = () => {
           </AppBar>
         </Slide>
       </Box>
-  )
+  );
 };
 
 export default Navbar;

@@ -1,5 +1,5 @@
-import { Paper, Typography } from '@mui/material'
-import Timeline from "@mui/lab/Timeline";
+import { Paper, Typography } from '@mui/material';
+import Timeline from '@mui/lab/Timeline';
 import { TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, timelineOppositeContentClasses, TimelineSeparator } from '@mui/lab';
 
 const Education = () => {
@@ -7,7 +7,7 @@ const Education = () => {
     <div>
       <Typography 
         variant="h4" 
-        sx={{mb: 4}}
+        sx={{ mb: 4 }}
       >
         Education
       </Typography>
@@ -44,7 +44,7 @@ const Education = () => {
     </Timeline>
       </Paper>
     </div>
-  )
-}
+  );
+};
 
-export default Education
+export default Education;

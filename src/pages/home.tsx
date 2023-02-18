@@ -1,4 +1,4 @@
-import { Paper } from "@mui/material"
+import { Paper } from '@mui/material';
 
 const Home = () => {
   return (
@@ -7,7 +7,7 @@ const Home = () => {
         <h1>Home</h1>
       </Paper>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

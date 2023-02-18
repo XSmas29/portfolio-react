@@ -1,12 +1,12 @@
-import { Typography } from "@mui/material"
-import { Link } from "react-router-dom"
+import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-type navbarLinkProps = {
+type NavbarLinkProps = {
   title: string
   url: string
-}
+};
 
-const NavbarLink = ({ title, url }: navbarLinkProps) => {
+const NavbarLink = ({ title, url }: NavbarLinkProps) => {
   return (
     <Typography
       variant="h6"
@@ -20,13 +20,13 @@ const NavbarLink = ({ title, url }: navbarLinkProps) => {
         to={url} 
         style={{
           textDecoration: 'none', 
-          color: 'inherit'
+          color: 'inherit',
         }}
       >
         {title}
       </Link>
     </Typography>
-  )
-}
+  );
+};
 
-export default NavbarLink
+export default NavbarLink;

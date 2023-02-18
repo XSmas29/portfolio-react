@@ -1,4 +1,4 @@
-import { Paper } from "@mui/material"
+import { Paper } from '@mui/material';
 
 const Experience = () => {
   return (
@@ -7,7 +7,7 @@ const Experience = () => {
         <h1>Experience</h1>
       </Paper>
     </div>
-  )
-}
+  );
+};
 
-export default Experience
+export default Experience;

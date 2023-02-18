@@ -1,21 +1,31 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "standard-with-typescript"
+        "react-app",
+        "react-app/jest",
+        "airbnb-typescript",
+        "plugin:import/typescript"
     ],
+    "parser": "@typescript-eslint/parser",
     "overrides": [
     ],
     "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint"
     ],
+    "ignorePatterns": ["tsconfig.json", "tsconfig.node.json", "vite.config.json"],
     "rules": {
     }
 }
