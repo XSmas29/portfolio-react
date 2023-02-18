@@ -1,21 +1,51 @@
 import { createTheme } from "@mui/material/styles";
 import { red } from "@mui/material/colors";
-const themeConfig = createTheme({
-  palette: {
-    primary: {
-      light: "#6155b6",
-      main: "#3A2BA4",
-      dark: "#281e72",
-    },
-    secondary: {
-      light: "#a2a2a2",
-      main: "#8B8B8B",
-      dark: "#616161",
-    },
-    error: {
-      main: red["600"],
-    },
+import { PaletteMode } from "@mui/material";
+
+const colors = {
+  violet: '#5F49F9',
+  gray: '#8B8B8B',
+  red: red["600"],
+  white: '#FFFFFF',
+  black: '#2B2B2B',
+  darkViolet: '#3A2BA4',
+  darkGray: '#5D5D5D',
+  lightGray: '#AAB4BE',
+}
+
+const lightTheme = {
+  primary: {
+    main: colors.violet,
+  },
+  secondary: {
+    main: colors.gray,
+  },
+  error: {
+    main: colors.red,
+  },
+  background: {
+    default: colors.white,
   }
+}
+const darkTheme = {
+  primary: {
+    main: colors.darkViolet,
+  },
+  secondary: {
+    main: colors.darkGray,
+  },
+  error: {
+    main: colors.red,
+  },
+  background: {
+    default: colors.black,
+  }
+}
+const themeConfig = (mode: PaletteMode) => createTheme({
+  palette: mode === "dark" ? darkTheme : lightTheme,
 });
 
-export default themeConfig;
+export {
+  themeConfig,
+  colors,
+};
