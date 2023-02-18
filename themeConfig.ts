@@ -1,11 +1,10 @@
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 import { PaletteMode } from "@mui/material";
 
 const colors = {
   violet: '#5F49F9',
   gray: '#8B8B8B',
-  red: red["600"],
+  red: '#E53935',
   white: '#FFFFFF',
   black: '#2B2B2B',
   darkViolet: '#3A2BA4',

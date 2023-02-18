@@ -23,6 +23,7 @@
       "@utils/*": ["src/utils/*"],
       "@hooks/*": ["src/hooks/*"],
       "@store/*": ["src/store/*"],
+      "@router/*": ["src/router/*"],
       "@theme": ["themeConfig.ts"],
     }
   },

@@ -12,6 +12,7 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, 'src/utils'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@store': path.resolve(__dirname, 'src/store'),
+      '@router': path.resolve(__dirname, 'src/router'),
       '@theme': path.resolve(__dirname, 'themeConfig.ts'),
     },
   }

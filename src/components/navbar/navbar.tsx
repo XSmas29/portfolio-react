@@ -4,6 +4,7 @@ import { Menu } from '@mui/icons-material';
 import ThemeSwitch from '@components/misc/themeSwitch';
 import { useDispatch } from 'react-redux';
 import { changeMode } from '@store/slice/mode';
+import NavbarLink from './navbarLink';
 
 
 const Navbar = () => {
@@ -19,17 +20,35 @@ const Navbar = () => {
           sx={{ 
             display: 'flex',
             justifyContent: 'space-between',
+            alignItems: 'center'
           }}
         >
-          <IconButton
-            size="large"
-            edge="start"
-            color='inherit'
-          >
-            <Menu />
-          </IconButton>
           <div>
-            <ThemeSwitch onChange={(evt, val) => dispatch(changeMode(val === true ? 'dark' : 'light'))}/>
+            <IconButton
+              size="large"
+              edge="start"
+              color='inherit'
+            >
+              <Menu />
+            </IconButton>
+              <NavbarLink
+                title="Home" 
+                url="/" 
+              />
+              <NavbarLink 
+                title="Education" 
+                url="/education" 
+              />
+              <NavbarLink 
+                title="Experience"
+                url="/experience" 
+              />
+          </div>
+          <div>
+            <ThemeSwitch 
+              sx={{ mr: 3 }}
+              onChange={(evt, val) => dispatch(changeMode(val === true ? 'dark' : 'light'))}
+            />
             <Button color="inherit">Login</Button>
           </div>
         </Toolbar>

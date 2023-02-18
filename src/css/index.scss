@@ -1,8 +1,21 @@
+$violet: #5F49F9;
+$gray: #8B8B8B;
+$red: #E53935;
+$white: #FFFFFF;
+$black: #252525;
+$darkViolet: #3A2BA4;
+$darkGray: #5D5D5D;
+$lightGray: #AAB4BE;
+
 body {
   margin: 0;
   padding: 0;
 }
 
-* {
-  transition: color 0.5s ease-in-out;
+.theme-dark {
+  background-color: $black;
+}
+
+.theme-light {
+  background-color: $white;
 }
