@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import reactLogo from './assets/react.svg'
-import '@styles/App.css'
+import '@styles/app.scss'
 import Home from '@pages/home'
+
 
 function App() { 
   return (

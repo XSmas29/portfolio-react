@@ -11,6 +11,7 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@utils': path.resolve(__dirname, 'src/utils'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@theme': path.resolve(__dirname, 'themeConfig.ts'),
     },
   }
 })
