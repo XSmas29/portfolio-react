@@ -5,58 +5,73 @@ import ThemeSwitch from '@components/misc/themeSwitch';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeMode } from '@store/slice/mode';
 import NavbarLink from './navbarLink';
+import { Slide } from '@mui/material';
+import { useRef } from 'react';
 
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const mode = useSelector((state: any) => state.mode)
-
+  
   return (
-    <Box>
-      <AppBar 
-        position="static"
-        color='primary'
+      <Box
+        sx={{
+          p: 2,
+        }}
       >
-        <Toolbar
-          sx={{ 
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}
+        <Slide 
+          direction="down" 
+          in={true} 
         >
-          <div>
-            <IconButton
-              size="large"
-              edge="start"
-              color='inherit'
+          <AppBar 
+            position="static"
+            color='primary'
+            sx={{
+              borderRadius: 2,
+              py: 1,
+            }}
+          >
+            <Toolbar
+              sx={{ 
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
             >
-              <Menu />
-            </IconButton>
-              <NavbarLink
-                title="Home" 
-                url="/" 
-              />
-              <NavbarLink 
-                title="Education" 
-                url="/education" 
-              />
-              <NavbarLink 
-                title="Experience"
-                url="/experience" 
-              />
-          </div>
-          <div>
-            <ThemeSwitch 
-              sx={{ mr: 3 }}
-              onChange={(evt, val) => dispatch(changeMode(val === true ? 'dark' : 'light'))}
-              checked={mode.value === 'dark' ? true : false}
-            />
-            <Button color="inherit">Login</Button>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+              <div>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color='inherit'
+                >
+                  <Menu />
+                </IconButton>
+                  <NavbarLink
+                    title="Home" 
+                    url="/" 
+                  />
+                  <NavbarLink 
+                    title="Education" 
+                    url="/education" 
+                  />
+                  <NavbarLink 
+                    title="Experience"
+                    url="/experience" 
+                  />
+              </div>
+              <div>
+                <ThemeSwitch 
+                  sx={{ mr: 3 }}
+                  onChange={(evt, val) => dispatch(changeMode(val === true ? 'dark' : 'light'))}
+                  checked={mode.value === 'dark' ? true : false}
+                />
+                <Button color="inherit">Login</Button>
+              </div>
+            </Toolbar>
+          </AppBar>
+        </Slide>
+      </Box>
+  )
 };
 
 export default Navbar;

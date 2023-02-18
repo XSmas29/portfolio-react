@@ -1,21 +1,17 @@
+
+import { Routes, Route } from 'react-router-dom'
 import Home from '@pages/home'
-import Education from '@pages/education'
-import Experience from '@pages/experience'
-import { createBrowserRouter } from 'react-router-dom'
+import Experience from '../pages/experience';
+import Education from '../pages/education';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/education',
-    element: <Education />,
-  },
-  {
-    path: '/experience',
-    element: <Experience />,
-  },
-])
+const Routing = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/education" element={<Education />} />
+      <Route path="/experience" element={<Experience />} />
+    </Routes>
+  );
+};
 
-export default router
+export default Routing;

@@ -1,9 +1,11 @@
-import Navbar from "@components/navbar/navbar"
+import { Paper } from "@mui/material"
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      <Paper>
+        <h1>Home</h1>
+      </Paper>
     </div>
   )
 }
