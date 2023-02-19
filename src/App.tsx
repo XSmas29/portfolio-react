@@ -16,14 +16,11 @@ function App() {
       >
         <div className="App">
           <Navbar />
-          <Paper
-            elevation={0}
-            sx={{
-              m: 4,
-            }}
+          <div
+            style={{ margin: '2em' }}
           >
             <Routing />
-          </Paper>
+          </div>
         </div>
       </Paper>
     </ThemeProvider>

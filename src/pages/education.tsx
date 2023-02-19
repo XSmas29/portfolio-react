@@ -1,6 +1,7 @@
 import { Paper, Typography } from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
-import { TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, timelineOppositeContentClasses, TimelineSeparator } from '@mui/lab';
+import { TimelineItem, timelineOppositeContentClasses } from '@mui/lab';
+import TimelineCard from '@components/card/timelineCard';
 
 const Education = () => {
   return (
@@ -16,32 +17,16 @@ const Education = () => {
         variant="outlined"
       >
         <Timeline
-      sx={{
-        [`& .${timelineOppositeContentClasses.root}`]: {
-          flex: 0.2,
-        },
-      }}
-    >
-      <TimelineItem>
-        <TimelineOppositeContent color="textSecondary">
-          2019 - 2023
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>Institut Sains dan Teknologi Terpadu Surabaya - Bachelor of Information System</TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent color="textSecondary">
-          2016 - 2019
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot />
-        </TimelineSeparator>
-        <TimelineContent>SMAK Frateran Surabaya - High School</TimelineContent>
-      </TimelineItem>
-    </Timeline>
+          sx={{
+            [`& .${timelineOppositeContentClasses.root}`]: {
+              flex: 0.2,
+            },
+          }}
+        >
+          <TimelineItem>
+            <TimelineCard dateEnd={{ day: 1, month: 1, year: 2016 }} dateStart={{ year: 2019 }} description={'tes'}/>
+          </TimelineItem>
+        </Timeline>
       </Paper>
     </div>
   );
