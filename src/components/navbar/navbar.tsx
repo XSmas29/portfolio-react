@@ -27,6 +27,7 @@ const Navbar = () => {
             sx={{
               borderRadius: 2,
               py: 1,
+              backgroundColor: 'primary.main',
             }}
           >
             <Toolbar

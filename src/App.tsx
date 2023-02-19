@@ -9,17 +9,23 @@ function App() {
   const mode = useSelector((state: any) => state.mode);
   return (
     <ThemeProvider theme={themeConfig(mode.value)}>
-      <div className="App">
-        <Navbar />
-        <Paper
-          elevation={0}
-          sx={{
-            m: 4,
-          }}
-        >
-          <Routing />
-        </Paper>
-      </div>
+      <Paper
+        sx={{
+          minHeight: '100vh',
+        }}
+      >
+        <div className="App">
+          <Navbar />
+          <Paper
+            elevation={0}
+            sx={{
+              m: 4,
+            }}
+          >
+            <Routing />
+          </Paper>
+        </div>
+      </Paper>
     </ThemeProvider>
   );
 }
