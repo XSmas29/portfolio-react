@@ -1,19 +1,8 @@
 import { TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent, TimelineSeparator } from '@mui/lab';
 import { dateTimeLine } from '@utils/format';
+import { TimelineCardProps } from 'src/types';
 
-type TimelineCardProps = {
-  dateStart: {
-    day?: number;
-    month?: number;
-    year: number;
-  };
-  dateEnd: {
-    day?: number;
-    month?: number;
-    year: number;
-  };
-  description: string;
-};
+
 
 const TimelineCard = ({ dateStart, dateEnd, description }: TimelineCardProps) => {
   return (

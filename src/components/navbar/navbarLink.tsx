@@ -1,10 +1,8 @@
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { NavbarLinkProps } from 'src/types';
 
-type NavbarLinkProps = {
-  title: string
-  url: string
-};
+
 
 const NavbarLink = ({ title, url }: NavbarLinkProps) => {
   return (

@@ -15,24 +15,32 @@ import {
   Avatar,
   Paper,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
-import { Home, School, Stars, GitHub, RadioButtonUnchecked, RadioButtonChecked } from '@mui/icons-material';
+import { Home, School, Stars, Close, GitHub, RadioButtonUnchecked, RadioButtonChecked } from '@mui/icons-material';
 import Navbar from '@components/navbar/navbar';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeActiveTab, changeOpen } from '@store/slice/sidebar';
+import { BreakPointKeys } from 'src/types';
 
 const drawerWidth = 240;
 const menuList = [
   {
+    id: 1,
     title: 'Home',
     icon: <Home />,
     link: '/',
   },
   {
+    id: 2,
     title: 'Education',
     icon: <School />,
     link: '/education',
   },
   {
+    id: 3,
     title: 'Experience',
     icon: <Stars />,
     link: '/experience',
@@ -77,7 +85,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+const Drawer = styled(MuiDrawer)(
   ({ theme, open }) => ({
     width: drawerWidth,
     flexShrink: 0,
@@ -95,14 +103,28 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function AppDrawer(props: any) {
-  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
   const [keepOpen, setKeepOpen] = React.useState(false);
+  const sideBar = useSelector((state: any) => state.sidebar);
+  const dispatch = useDispatch();
 
+  const xl = useMediaQuery(theme.breakpoints.up('xl'));
+  const lg = useMediaQuery(theme.breakpoints.up('lg'));
+  const md = useMediaQuery(theme.breakpoints.up('md'));
+  const sm = useMediaQuery(theme.breakpoints.up('sm'));
+  const xs = useMediaQuery(theme.breakpoints.up('xs'));
+
+  const resolveBreakpoint = (key: BreakPointKeys) => {
+    if (key === 'xl') return xl;
+    if (key === 'lg') return lg;
+    if (key === 'md') return md;
+    if (key === 'sm') return sm;
+    if (key === 'xs') return xs;
+    return xs;
+  };
+  
   const isOpen = () => {
-    if (keepOpen) {
-      return true;
-    }
-    return open;
+    return keepOpen ? keepOpen : sideBar.isOpen;
   };
   
   const toggleKeepOpen = () => {
@@ -114,17 +136,28 @@ export default function AppDrawer(props: any) {
       sx={{ display: 'flex' }}
     >
       <Drawer
-        variant="permanent" 
+        variant={resolveBreakpoint('md') ? 'permanent' : 'temporary'}
         open={isOpen()}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
+        onMouseEnter={() => resolveBreakpoint('md') ? dispatch(changeOpen(true)) : () => null}
+        onMouseLeave={() => resolveBreakpoint('md') ? dispatch(changeOpen(false)) : () => null}
       >
         <DrawerHeader
           sx={!isOpen() ? { justifyContent: 'center' } : null}
         >
-          <IconButton onClick={ toggleKeepOpen }>
-          {keepOpen ? <RadioButtonChecked /> : <RadioButtonUnchecked />}
-          </IconButton>
+          
+          {resolveBreakpoint('md') ?
+            <IconButton onClick={ toggleKeepOpen }>
+              {keepOpen ? <RadioButtonChecked /> : <RadioButtonUnchecked />}
+            </IconButton>
+            : 
+            <IconButton
+              size="large"
+              edge="start"
+              onClick={() => dispatch(changeOpen(false))}
+            >
+              <Close />
+            </IconButton> 
+          }
         </DrawerHeader>
         <Divider />
         <Paper 
@@ -155,19 +188,25 @@ export default function AppDrawer(props: any) {
         <Divider />
         <List>
           {menuList.map(item => (
-            <ListItem key={item.title} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={item.title} 
+              disablePadding sx={{ display: 'block' }}
+            >
               <Link 
                 to={item.link} 
                 style={{
                   textDecoration: 'none', 
                   color: 'inherit',
                 }}
+                onClick={() => {
+                  dispatch(changeActiveTab(item.id));
+                }}
               >
                 <ListItemButton
                   sx={{
                     minHeight: 48,
-                    justifyContent: open ? 'initial' : 'center',
+                    justifyContent: isOpen() ? 'initial' : 'center',
                     px: 2.5,
+                    backgroundColor: sideBar.activeTab === item.id ? 'secondary.main' : 'transparent',
                   }}
                 >
                   <ListItemIcon
