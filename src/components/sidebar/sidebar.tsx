@@ -18,7 +18,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import { Home, School, Stars, Close, GitHub, RadioButtonUnchecked, RadioButtonChecked } from '@mui/icons-material';
+import { Home, School, Stars, Close, GitHub, RadioButtonUnchecked, RadioButtonChecked, LinkedIn } from '@mui/icons-material';
 import Navbar from '@components/navbar/navbar';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -52,6 +52,16 @@ const contactList = [
     title: 'Github',
     icon: <GitHub />,
     link: 'https://github.com/XSmas29',
+  },
+  {
+    title: 'Gitlab',
+    icon: <GitHub />,
+    link: 'https://gitlab.com/bumantara.surya2213',
+  },
+  {
+    title: 'Linkedin',
+    icon: <LinkedIn />,
+    link: 'https://www.linkedin.com/in/surya-bumantara-b442101ab/',
   },
 ];
 
@@ -134,10 +144,11 @@ export default function AppDrawer(props: any) {
   return (
     <Box 
       sx={{ display: 'flex' }}
+      onClick={() => (!resolveBreakpoint('md')) && sideBar.isOpen ? dispatch(changeOpen(false)) : null}
     >
       <Drawer
         variant={resolveBreakpoint('md') ? 'permanent' : 'temporary'}
-        open={isOpen()}
+        open={resolveBreakpoint('md') ? isOpen() : sideBar.isOpen }
         onMouseEnter={() => resolveBreakpoint('md') ? dispatch(changeOpen(true)) : () => null}
         onMouseLeave={() => resolveBreakpoint('md') ? dispatch(changeOpen(false)) : () => null}
       >
