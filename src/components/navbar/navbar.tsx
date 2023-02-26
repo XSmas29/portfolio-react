@@ -1,9 +1,8 @@
-import { AppBar, Box, Button, IconButton, Toolbar } from '@mui/material';
-import { Menu } from '@mui/icons-material';
+import { AppBar, Box, Button, Toolbar } from '@mui/material';
 import ThemeSwitch from '@components/misc/themeSwitch';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeMode } from '@store/slice/mode';
-import NavbarLink from './navbarLink';
+// import NavbarLink from './navbarLink';
 import { Slide } from '@mui/material';
 
 
@@ -14,7 +13,7 @@ const Navbar = () => {
   return (
       <Box
         sx={{
-          p: 2,
+          p: 1,
         }}
       >
         <Slide 
@@ -38,14 +37,14 @@ const Navbar = () => {
               }}
             >
               <span>
-                <IconButton
+                {/* <IconButton
                   size="large"
                   edge="start"
                   color='inherit'
                 >
                   <Menu />
-                </IconButton>
-                  <NavbarLink
+                </IconButton> */}
+                  {/* <NavbarLink
                     title="Home" 
                     url="/" 
                   />
@@ -56,7 +55,7 @@ const Navbar = () => {
                   <NavbarLink 
                     title="Experience"
                     url="/experience" 
-                  />
+                  /> */}
               </span>
               <div>
                 <ThemeSwitch 

@@ -1,5 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 import { PaletteMode, PaletteOptions } from '@mui/material';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import PoppinsRegular from '@fonts/Poppins-Regular.ttf';
 
 const colors = {
   light: {
@@ -52,9 +54,9 @@ const colors = {
   },
   dark: {
     primary: {
-      light: '#281E72',
-      main: '#3A2BA4',
-      dark: '#6155B6',
+      light: '#9587FB',
+      main: '#7B69FB',
+      dark: '#5649AF',
     },
     secondary: {
       light: '#D3D3D3',
@@ -91,7 +93,7 @@ const colors = {
       disabled: '#FFFFFF80',
     },
     action: {
-      active: '#3A2BA4',
+      active: '#7B69FB',
       disabled: '#281E72B3',
       hover: '#34259E',
       disabledBackground: '#2F2097',
@@ -111,6 +113,7 @@ const lightTheme: PaletteOptions = {
   success: colors.light.success,
   warning: colors.light.warning,
   mode: 'light' as PaletteMode,
+
 };
 const darkTheme: PaletteOptions = {
   primary: colors.dark.primary,
@@ -124,9 +127,30 @@ const darkTheme: PaletteOptions = {
   warning: colors.dark.warning,
   mode: 'dark' as PaletteMode,
 };
-const themeConfig = (mode: PaletteMode) => createTheme({
+const themeConfig = (mode: PaletteMode) => (createTheme({
   palette: mode === 'dark' ? darkTheme : lightTheme,
-});
+  typography: {
+    fontFamily: 'Poppins, Roboto, Arial, sans-serif',
+    body1: {
+      letterSpacing: 0.4,
+    },
+    body2: {
+      letterSpacing: 0.4,
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        '@font-face': [
+          {
+            fontFamily: 'Poppins',
+            src: `url(${PoppinsRegular})`,
+          },
+        ],
+      },
+    },
+  },
+}));
 
 export {
   themeConfig,

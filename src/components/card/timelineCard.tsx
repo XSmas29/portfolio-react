@@ -1,4 +1,5 @@
 import { TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent, TimelineSeparator } from '@mui/lab';
+import { dateTimeLine } from '@utils/format';
 
 type TimelineCardProps = {
   dateStart: {
@@ -9,7 +10,7 @@ type TimelineCardProps = {
   dateEnd: {
     day?: number;
     month?: number;
-    year?: number;
+    year: number;
   };
   description: string;
 };
@@ -17,12 +18,14 @@ type TimelineCardProps = {
 const TimelineCard = ({ dateStart, dateEnd, description }: TimelineCardProps) => {
   return (
     <>
-      <TimelineOppositeContent color="textSecondary">
-        {`${dateStart.day} ${dateStart.month} ${dateStart.year}`} - {`${dateEnd.day} ${dateEnd.month} ${dateEnd.year}`}
+      <TimelineOppositeContent
+        color="textSecondary"
+      >
+        {`${dateTimeLine(dateStart.year, dateStart.month, dateStart.day)}`} - {`${dateTimeLine(dateEnd.year, dateEnd.month, dateEnd.day)}`}
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineDot color='primary'/>
-      <TimelineConnector />
+        <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent>{ description }</TimelineContent>
     </>

@@ -15,7 +15,7 @@ const ThemeSwitch = styled((props: SwitchProps) => {
       transform: 'translateX(22px)',
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: 'primary.main',
+        backgroundColor: '#5649AF',
         border: 0,
       },
       '&.Mui-disabled + .MuiSwitch-track': {
@@ -55,7 +55,7 @@ const ThemeSwitch = styled((props: SwitchProps) => {
   },
   '& .MuiSwitch-track': {
     opacity: 1,
-    backgroundColor: 'lightgray',
+    backgroundColor: '#D3D3D3',
     borderRadius: 36 / 2,
     transition: theme.transitions.create(['background-color'], {
       duration: 400,
