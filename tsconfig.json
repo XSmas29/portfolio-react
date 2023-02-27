@@ -24,6 +24,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@store/*": ["src/store/*"],
       "@router/*": ["src/router/*"],
+      "@composables/*": ["src/composables/*"],
+      "@types/*": ["src/types/*"],
       "@fonts/*": ["fonts/*"],
       "@theme": ["themeConfig.ts"],
     }

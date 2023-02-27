@@ -10,6 +10,7 @@ type TimelineCardProps = {
     year: number;
   };
   description: string;
+  index: number;
 };
 
 type NavbarLinkProps = {

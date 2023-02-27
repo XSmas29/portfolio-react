@@ -1,6 +1,6 @@
 import { Zoom, Paper, Typography } from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
-import { TimelineItem, timelineItemClasses, timelineOppositeContentClasses } from '@mui/lab';
+import { TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from '@mui/lab';
 import TimelineCard from '@components/card/timelineCard';
 // import { TransitionGroup } from 'react-transition-group';
 import { TransitionGroup } from 'react-transition-group';
@@ -51,15 +51,10 @@ const Education = () => {
             variant="outlined"
           >
             <Timeline
-              sx={{
-                [`& .${timelineOppositeContentClasses.root}`]: {
-                  flex: 0.2,
-                },
-                [`& .${timelineItemClasses.root}:before`]: {
-                  flex: 0,
-                  padding: 0,
-                },
-              }}
+             position="alternate"
+             sx={{
+               p: 0,
+             }}
             >
               {data.map((item, index) => (
                 <TimelineItem
@@ -69,6 +64,7 @@ const Education = () => {
                     dateEnd={item.dateEnd} 
                     dateStart={item.dateStart} 
                     description={item.description}
+                    index={index}
                   />
                 </TimelineItem>
               ))}

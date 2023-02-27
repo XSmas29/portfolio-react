@@ -4,32 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeMode } from '@store/slice/mode';
 // import NavbarLink from './navbarLink';
 import { Slide } from '@mui/material';
-import { useTheme } from '@mui/material';
-import { useMediaQuery } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { changeOpen } from '@store/slice/sidebar';
-import { BreakPointKeys } from 'src/types';
+import { useBreakpoint } from '@composables/useBreakpoint';
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const mode = useSelector((state: any) => state.mode);
   const sidebar = useSelector((state: any) => state.sidebar);
-  const theme = useTheme();
 
-  const xl = useMediaQuery(theme.breakpoints.up('xl'));
-  const lg = useMediaQuery(theme.breakpoints.up('lg'));
-  const md = useMediaQuery(theme.breakpoints.up('md'));
-  const sm = useMediaQuery(theme.breakpoints.up('sm'));
-  const xs = useMediaQuery(theme.breakpoints.up('xs'));
-
-  const resolveBreakpoint = (key: BreakPointKeys) => {
-    if (key === 'xl') return xl;
-    if (key === 'lg') return lg;
-    if (key === 'md') return md;
-    if (key === 'sm') return sm;
-    if (key === 'xs') return xs;
-    return xs;
-  };
+  const { resolveBreakpoint } = useBreakpoint();
 
   return (
       <Box

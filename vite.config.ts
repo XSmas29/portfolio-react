@@ -13,6 +13,8 @@ export default defineConfig({
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@router': path.resolve(__dirname, 'src/router'),
+      '@composables': path.resolve(__dirname, 'src/composables'),
+      '@types': path.resolve(__dirname, 'src/types'),
       '@fonts': path.resolve(__dirname, 'fonts'),
       '@theme': path.resolve(__dirname, 'themeConfig.ts'),
     },

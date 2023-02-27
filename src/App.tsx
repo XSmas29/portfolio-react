@@ -18,7 +18,7 @@ function App() {
         <div className="App">
           <Sidebar>
             <div
-              style={{ margin: '2em' }}
+              style={{ margin: '0.75em' }}
             >
               <Routing />
             </div>

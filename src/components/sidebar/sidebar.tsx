@@ -15,15 +15,13 @@ import {
   Avatar,
   Paper,
   Typography,
-  useTheme,
-  useMediaQuery,
 } from '@mui/material';
-import { Home, School, Stars, Close, GitHub, RadioButtonUnchecked, RadioButtonChecked, LinkedIn } from '@mui/icons-material';
+import { Home, School, Stars, Close, GitHub, RadioButtonUnchecked, RadioButtonChecked, LinkedIn, Launch } from '@mui/icons-material';
 import Navbar from '@components/navbar/navbar';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeActiveTab, changeOpen } from '@store/slice/sidebar';
-import { BreakPointKeys } from 'src/types';
+import { useBreakpoint } from '@composables/useBreakpoint';
 
 const drawerWidth = 240;
 const menuList = [
@@ -113,25 +111,11 @@ const Drawer = styled(MuiDrawer)(
 );
 
 export default function AppDrawer(props: any) {
-  const theme = useTheme();
   const [keepOpen, setKeepOpen] = React.useState(false);
   const sideBar = useSelector((state: any) => state.sidebar);
   const dispatch = useDispatch();
 
-  const xl = useMediaQuery(theme.breakpoints.up('xl'));
-  const lg = useMediaQuery(theme.breakpoints.up('lg'));
-  const md = useMediaQuery(theme.breakpoints.up('md'));
-  const sm = useMediaQuery(theme.breakpoints.up('sm'));
-  const xs = useMediaQuery(theme.breakpoints.up('xs'));
-
-  const resolveBreakpoint = (key: BreakPointKeys) => {
-    if (key === 'xl') return xl;
-    if (key === 'lg') return lg;
-    if (key === 'md') return md;
-    if (key === 'sm') return sm;
-    if (key === 'xs') return xs;
-    return xs;
-  };
+  const { resolveBreakpoint } = useBreakpoint();
   
   const isOpen = () => {
     return keepOpen ? keepOpen : sideBar.isOpen;
@@ -260,6 +244,14 @@ export default function AppDrawer(props: any) {
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText primary={item.title} sx={{ opacity: isOpen() ? 1 : 0 }} />
+                {isOpen() ? <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Launch/>
+                </ListItemIcon> : null}
               </ListItemButton>
             </ListItem>
           ))}
