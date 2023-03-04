@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, IconButton, Toolbar } from '@mui/material';
+import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/material';
 import ThemeSwitch from '@components/misc/themeSwitch';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeMode } from '@store/slice/mode';
@@ -55,6 +55,9 @@ const Navbar = () => {
                   null
                 }
               </span>
+              <Typography>
+                
+              </Typography>
               <div>
                 <ThemeSwitch 
                   sx={{ mr: 3 }}

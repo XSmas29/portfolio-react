@@ -1,6 +1,6 @@
 import { Zoom, Paper, Typography } from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
-import { TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from '@mui/lab';
+import { TimelineItem } from '@mui/lab';
 import TimelineCard from '@components/card/timelineCard';
 // import { TransitionGroup } from 'react-transition-group';
 import { TransitionGroup } from 'react-transition-group';
